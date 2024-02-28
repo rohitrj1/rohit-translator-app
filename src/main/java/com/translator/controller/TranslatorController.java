@@ -9,7 +9,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/translate")
 public class TranslatorController {
 
     @Autowired
@@ -20,8 +19,10 @@ public class TranslatorController {
         return new ResponseEntity<>(translatorService.translateEngToFrench(requestTxt),HttpStatus.OK);
     }
 
-    @GetMapping
+    @GetMapping("/translate")
     public ResponseEntity<?> getMessage(){
-        return new ResponseEntity("welcome to translator app",HttpStatus.OK);
+    	System.out.println("working");
+        return new ResponseEntity<>("welcome to translator app",HttpStatus.OK);
+        	
     }
 }
